@@ -106,6 +106,7 @@ jobs:
         id: version
         run: |
           version_count=`cat ./version_count`
+          version_count=$((version_count+1))
           echo "VERSION=v0.0.${version_count}" >> $GITHUB_OUTPUT
           echo "VERSION=${version_count}" >> $GITHUB_ENV
 
@@ -125,7 +126,6 @@ jobs:
 
       - name: increase version
         run: |
-          VERSION=$((VERSION+1))
           echo ${VERSION} > ./version_count
           git config --global user.email "${AUTHOR_EMAIL}"
           git config --global user.name "${AUTHOR_NAME}"
