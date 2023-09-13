@@ -20,11 +20,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      xenial_package: ${{ steps.package.outputs.xenial_package }}
-      bionic_package: ${{ steps.package.outputs.bionic_package }}
-      focal_package: ${{ steps.package.outputs.focal_package }}
-      jammy_package: ${{ steps.package.outputs.jammy_package }}
     strategy:
       matrix:
         dist: [xenial, bionic, focal, jammy]
